@@ -1,13 +1,10 @@
 package sistemagestióntransporteturístico;
 
-
-import sistemagestióntransporteturístico.Vehiculo;
-
 /**
  *
  * @author Natu
  */
-public class LanchaTuristica extends Vehiculo {
+public class LanchaTuristica extends Vehiculo implements servicioTuristico {
     
     private String tipoMotor; //NAFTA DIESEL o ELECTRICO
 
@@ -29,6 +26,11 @@ public class LanchaTuristica extends Vehiculo {
         return "[Lancha Turistica] " + super.toString()
                 + "\n Tipo de Motor: " + tipoMotor;
 
+    }
+
+    @Override
+    public void realizarServicioTuristico() {
+        System.out.println("Su Lancha incluye la realizacion de servicios turisticos.");
     }
     
     

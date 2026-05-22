@@ -1,6 +1,5 @@
 
 package sistemagestióntransporteturístico;
-
 import java.util.ArrayList;
 
 /**
@@ -48,7 +47,7 @@ public class GestionVehiculo {
             }
         }
     }
-    }
+    
 
     public void mostrarVehiculosCapacidad(int capacidadMax) {
         
