@@ -1,3 +1,5 @@
+package sistemagestióntransporteturístico;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -54,11 +56,9 @@ public class Vehiculo implements Comparable<Vehiculo>{
     }
     
     
-    
-    
     @Override
     public String toString() {
-        return "Vehiculo: \n Patente = " + patente +
+        return "Vehiculo: \n Patente: " + patente +
                 "\n Marca: " + marca +
                 "\n Anio: " + anioFabricacion +
                 "\n Capacidad de Pasajeros: " + capacidadPasajeros;
