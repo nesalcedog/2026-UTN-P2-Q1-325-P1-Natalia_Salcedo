@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package sistemagestióntransporteturístico;
 
 /**
@@ -35,7 +32,7 @@ public class vanEjecutiva extends Vehiculo {
             tieneAire = "No";
         }
         
-        return "[Colectivo Turistico] " + super.toString() + 
+        return "[Van Ejecutiva] " + super.toString() + 
                 "\n Tiene aire acondicionado: " + tieneAire;
                 
     }
