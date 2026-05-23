@@ -36,10 +36,13 @@ public class Main {
                         break;
                 case 3: realizarServicioTuristico(); 
                         break;
-                //case 4: finalizarAlquiler(); break;
-                //case 5: enviarACarga(); break;
-               // case 6: enviarAMantenimiento(); break;
-               // case 7: plataforma.listarVehiculosQueNecesitanCarga(); break;
+                case 4: buscarVehiculoPatente(); 
+                        break;
+                case 5: mostrarVehiculoCapacidadMayor(); 
+                        break;
+                case 6: mostrarVehiculosOrdenadosPorFabricacion(); 
+                        break;
+                case 7: mostrarVehiculosOrdenadosPorPasajeros(); break;
                 case 8: System.out.println("¡Hasta luego!"); break;
                 default: System.out.println("Opción inválida.");
             }
@@ -149,7 +152,7 @@ public class Main {
                 int opcionMotor = scanner.nextInt();
 
                 // Acá lo pasamos a String directo
-                String motor;
+                String motor = " ";
 
             switch (opcionMotor) {
                 case 1:
@@ -183,6 +186,29 @@ public class Main {
                 
         nuevaGestion.realizarServicioTuristico();    
         
+    }
+    
+    private static void buscarVehiculoPatente(){      
+        System.out.println("Ingrese la pantente a buscar: ");
+        String patente = scanner.nextLine();        
+        nuevaGestion.buscarVehiculoPorPatente(patente);    
+        
+    }
+
+    private static void mostrarVehiculoCapacidadMayor() {
+        System.out.println("Buscar vehiculos con capacidad mayor a: ");
+        int capacidadMay = scanner.nextInt();        
+        nuevaGestion.mostrarVehiculosCapacidad(capacidadMay);
+    }
+
+    private static void mostrarVehiculosOrdenadosPorFabricacion() {
+        
+        nuevaGestion.mostrarVehiculosPorAnioFabricacion();
+        
+    }
+
+    private static void mostrarVehiculosOrdenadosPorPasajeros() {
+        nuevaGestion.ordenarPorPasajeros();
     }
     
 }

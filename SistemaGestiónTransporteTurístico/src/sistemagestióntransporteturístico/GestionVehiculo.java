@@ -95,7 +95,7 @@ public class GestionVehiculo {
     
     
     //PUNTO 4
-    public Vehiculo buscarVehiculoPorPatente(int patenteBuscada)  {
+    public Vehiculo buscarVehiculoPorPatente(String patenteBuscada)  {
         
 
         for (int i = 0; i < vehiculos.size(); i++) {
@@ -130,7 +130,7 @@ public class GestionVehiculo {
     }
     
     //PUNTO 7
-    public void ordenarPorTripulacion(){
+    public void ordenarPorPasajeros(){
         ArrayList<Vehiculo> copia = new ArrayList<>(vehiculos);  
         
         copia.sort(new Comparator<Vehiculo>(){
