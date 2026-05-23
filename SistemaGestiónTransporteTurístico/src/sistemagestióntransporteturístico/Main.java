@@ -124,7 +124,7 @@ public class Main {
                 }
 
                 nuevoVehiculo = new ColectivoTuristico(patente, marca, pasajeros, anio, pisos);
-                
+                nuevaGestion.agregarVehiculo(nuevoVehiculo);
                 break;
 
             case 2: // Van Ejecutiva
@@ -143,6 +143,7 @@ public class Main {
 
                 
                 nuevoVehiculo = new vanEjecutiva(patente, marca, pasajeros, anio, aire);
+                nuevaGestion.agregarVehiculo(nuevoVehiculo);
                 break;
 
             case 3: // Lancha Turistica
@@ -170,6 +171,7 @@ public class Main {
 
                 // Corregido el typo: CruceroEstelar con "c"
                 nuevoVehiculo = new LanchaTuristica(patente, marca, pasajeros, anio, motor);
+                nuevaGestion.agregarVehiculo(nuevoVehiculo);
                 break;
 
         }
