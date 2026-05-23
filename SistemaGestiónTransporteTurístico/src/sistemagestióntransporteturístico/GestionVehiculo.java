@@ -24,7 +24,7 @@ public class GestionVehiculo {
             // Rescatamos a la persona que está en la posición "i"
             Vehiculo vehiculoActual = vehiculos.get(i);
 
-            // Comparamos si la patente ya existe
+            // VALIDACION 5 :Comparamos si la patente ya existe
             if (vehiculoActual.getPatente().equals(nuevoVehiculo.getPatente())) {
 
                 // Si encontramos coincidencia, lanzamos tu error personalizado y el método se corta acá
@@ -39,7 +39,7 @@ public class GestionVehiculo {
     
     //PUNTO 2
     //Metodo para mostrar Vehiculos ingresados en la lista
-    public void mostrarVehiculos() {
+    public String mostrarVehiculos() {
 
         //Verificamos si existe un vehiculo cargado en la lista
         verificacionArrayVacio(vehiculos);
@@ -48,10 +48,10 @@ public class GestionVehiculo {
 
         for (int i = 0; i < vehiculos.size(); i++) {
 
-            System.out.println(vehiculos.get(i).toString());
+            return vehiculos.get(i).toString();
 
         }
-
+        return null;
     }
 
     //PUNTO 3
@@ -68,7 +68,7 @@ public class GestionVehiculo {
                 siServicioTuristico.realizarServicioTuristico();
             } else {
                 // Si no implementa, entonces no puede realizar el servicio
-                System.out.println("El vehiculo " + vehiculoActual.getMarca() + " no realiza servicios turisticos.");
+                System.out.println("El vehiculo " + vehiculoActual.toString()+ " no realiza servicios turisticos.");
             }
         }
     }

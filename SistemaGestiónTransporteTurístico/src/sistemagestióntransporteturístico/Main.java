@@ -12,7 +12,7 @@ public class Main {
 
     
     private static Scanner scanner = new Scanner(System.in);
-    
+    private static GestionVehiculo nuevaGestion = null;
     
     public static void main(String[] args) {
 
@@ -32,8 +32,10 @@ public class Main {
             switch (opcion) {
                 case 1: agregarVehiculo(); 
                         break;                
-                //case 2: plataforma.listarFlota(); break;
-               // case 3: alquilarVehiculo(); break;
+                case 2: mostrarTodosVehiculos(); 
+                        break;
+                case 3: realizarServicioTuristico(); 
+                        break;
                 //case 4: finalizarAlquiler(); break;
                 //case 5: enviarACarga(); break;
                // case 6: enviarAMantenimiento(); break;
@@ -81,7 +83,8 @@ public class Main {
         if (patente.trim().isEmpty()){ 
             System.out.println("Error: La patente no puede estar vacia");   
             return;
-        }
+        }        
+        
         //Agregamos la marca
         System.out.println("Marca: ");
         String marca = scanner.nextLine();
@@ -155,8 +158,11 @@ public class Main {
                 case 2:
                     motor = "DIESEL";
                     break;                    
-                default:
+                case 3:
                     motor = "ELECTRICO";
+                    break;
+                default:
+                    System.out.println("Motor no valido"); //VALIDACION 7: Debe ser un motor valido
                     break;
             }
 
@@ -165,6 +171,18 @@ public class Main {
                 break;
 
         }
+    }
+    
+    private static void mostrarTodosVehiculos(){      
+                
+        System.out.println(nuevaGestion.mostrarVehiculos());    
+        
+    }
+    
+    private static void realizarServicioTuristico(){      
+                
+        nuevaGestion.realizarServicioTuristico();    
+        
     }
     
 }
