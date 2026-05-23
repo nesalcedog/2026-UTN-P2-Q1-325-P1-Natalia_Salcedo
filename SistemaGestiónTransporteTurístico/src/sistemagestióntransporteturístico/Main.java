@@ -1,7 +1,7 @@
 
 package sistemagestióntransporteturístico;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -60,11 +60,111 @@ public class Main {
         System.out.println("========================================");
     }
         
-    static void agregarVehiculo(){    
+    private static void agregarVehiculo(){    
         
         System.out.println("Elija que tipo de vehiculo quiere agregar: ");
-        System.out.println("Elija que tipo de vehiculo quiere agregar: ");
+        System.out.println("1. Colectivo Turistico \n 2.Van Ejecutiva \n 3. Lancha Turistica");
         
+        int tipo = scanner.nextInt();
+        scanner.nextLine(); //para limpiar el buffer
+        
+        if(tipo < 1 || tipo > 3){
+            System.out.println("Tipo inválido"); 
+            return;
+        }
+        
+        //Agregamos la patente
+        System.out.println("Patente: ");
+        String patente = scanner.nextLine();
+        
+        //VALIDACION 1 : No permitimos patentes vacias
+        if (patente.trim().isEmpty()){ 
+            System.out.println("Error: La patente no puede estar vacia");   
+            return;
+        }
+        //Agregamos la marca
+        System.out.println("Marca: ");
+        String marca = scanner.nextLine();
+        
+        //Agregamos la cant. pasajeros
+        System.out.println("Cantidad de pasajeros: ");
+        int pasajeros = scanner.nextInt();
+        
+        //VALIDACION 2: No permitimos pasajeros menor o igual a cero
+        if(pasajeros <= 0){
+            System.out.println("Error: Los pasajeros no pueden ser negativos"); 
+            return;
+        }
+        
+        //Agregamos anio de Fabricacion
+        System.out.println("Año de fabricacion: ");
+        int anio = scanner.nextInt();
+        
+        //VALIDACION 3 Y 4: No permitimos anios menores de 1990 y mayores a 2026
+        if(anio < 1990 && anio > 2026){
+            System.out.println("Error: Rango de anio permitido de 1990 a 2026"); 
+            return;
+        }
+        
+        Vehiculo nuevoVehiculo;
+        
+        switch (tipo) {
+            case 1: // Colectivo Turistico
+                System.out.println("Cantidad de pisos (1 o 2): ");
+                int pisos = scanner.nextInt();
+                
+                // VALIDACION 6: pisos debe ser 1 o 2
+                if(pisos <= 0 && pisos >= 3){
+                    System.out.println("Error: Cantidad de pisos invalidos."); 
+                    return;
+                }
+
+                nuevoVehiculo = new ColectivoTuristico(patente, marca, pasajeros, anio, pisos);
+                break;
+
+            case 2: // Van Ejecutiva
+                System.out.println("Posee aire?: S/N ");
+                String tieneAire = scanner.nextLine();
+                Boolean aire = false;
+                
+                if(tieneAire.equalsIgnoreCase("S"))
+                {
+                    aire = true;
+                }else if(tieneAire.equalsIgnoreCase("S")){
+                    aire = false;
+                }else{
+                    System.out.println("Opcion invalida");
+                }
+
+                
+                nuevoVehiculo = new vanEjecutiva(patente, marca, pasajeros, anio, aire);
+                break;
+
+            case 3: // Lancha Turistica
+                System.out.println("Tipo de Motor [1. NAFTA / 2. DIESEL / 3. ELECTRICO]: ");
+                              
+                int opcionMotor = scanner.nextInt();
+
+                // Acá lo pasamos a String directo
+                String motor;
+
+            switch (opcionMotor) {
+                case 1:
+                    motor = "NAFTA";
+                    break;
+                case 2:
+                    motor = "DIESEL";
+                    break;                    
+                default:
+                    motor = "ELECTRICO";
+                    break;
+            }
+
+                // Corregido el typo: CruceroEstelar con "c"
+                nuevoVehiculo = new LanchaTuristica(patente, marca, pasajeros, anio, motor);
+                break;
+
+        }
     }
     
 }

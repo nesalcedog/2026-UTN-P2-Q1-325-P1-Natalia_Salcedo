@@ -5,16 +5,16 @@ package sistemagestióntransporteturístico;
  *
  * @author Natu
  */
-public class ColectivoTuristico extends Vehiculo {
+public class ColectivoTuristico extends Vehiculo implements servicioTuristico{
     
-    private short cantidadPisos; // 1 o 2
+    private int cantidadPisos; // 1 o 2
 
-    public ColectivoTuristico(String patente, String marca, int capacidadPasajeros, int anioFabricacion, short cantidadPisos) {
+    public ColectivoTuristico(String patente, String marca, int capacidadPasajeros, int anioFabricacion, int cantidadPisos) {
         super(patente, marca, capacidadPasajeros, anioFabricacion);
         this.cantidadPisos = cantidadPisos;
     }
 
-    public short getCantidadPisos() {
+    public int getCantidadPisos() {
         return cantidadPisos;
     }
 
@@ -27,6 +27,11 @@ public class ColectivoTuristico extends Vehiculo {
         return "[Colectivo Turistico] " + super.toString() + 
                 "\n Cantidad de Pisos: " + cantidadPisos;
                 
+    }
+    
+    @Override
+    public void realizarServicioTuristico() {
+        System.out.println("Su colectivo incluye la realizacion de servicios turisticos.");
     }
     
     
