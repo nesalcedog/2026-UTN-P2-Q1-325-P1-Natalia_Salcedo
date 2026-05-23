@@ -12,22 +12,20 @@ public class Main {
 
     
     private static Scanner scanner = new Scanner(System.in);
-    private static GestionVehiculo nuevaGestion = null;
+    private static final GestionVehiculo nuevaGestion = new GestionVehiculo();
     
     public static void main(String[] args) {
 
         int opcion;
         do {
             mostrarMenu();
-            
+            System.out.println("Ingrese una opcion: ");
             //Validamos que ingrese un numero
-            while (!scanner.hasNextInt()) {
-                System.out.println("Ingrese un número válido: ");
-                scanner.next();
-            }
-
             opcion = scanner.nextInt();
             scanner.nextLine(); //Para limpiar
+            
+            
+
 
             switch (opcion) {
                 case 1: agregarVehiculo(); 
@@ -126,6 +124,7 @@ public class Main {
                 }
 
                 nuevoVehiculo = new ColectivoTuristico(patente, marca, pasajeros, anio, pisos);
+                
                 break;
 
             case 2: // Van Ejecutiva
